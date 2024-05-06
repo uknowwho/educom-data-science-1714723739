@@ -54,7 +54,7 @@ erDiagram
     landen {
         int id PK
         string naam
-        string alphacode
+        string alphacode UK
     }
 
     provincies }o--|| landen: contains
@@ -69,12 +69,6 @@ erDiagram
         int id PK
         string naam
         int provincie_id FK
-    }
-
-    provincies_gemeentes {
-        int id PK
-        int provincie_id FK
-        int gemeente_id FK
     }
 
     plaatsen ||--|| postcodes: Has
@@ -121,4 +115,5 @@ erDiagram
         string app
         etc etc
     }
+
 ```
