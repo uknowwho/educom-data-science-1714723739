@@ -35,10 +35,10 @@ suppliers {
     text name
     text straat
     text huisnummer
-    int postcode FK
+    text postcode FK
     int city_id FK
     text p_address
-    text p_postcode
+    text p_postcode FK
     text p_city_id FK
 }
 
@@ -83,6 +83,7 @@ countries {
 }
 
 suppliers }o--o| pc_lat_long: livesIn
+suppliers }o--o| pc_lat_long: hasPostIn
 pc_lat_long {
     int id PK
     text pc6
