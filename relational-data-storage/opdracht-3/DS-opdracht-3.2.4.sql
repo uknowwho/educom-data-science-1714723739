@@ -1,0 +1,1 @@
+SELECT name, straat, huisnr, postcode FROM mhl_suppliers WHERE p_city_ID = 172 OR city_ID = 104
