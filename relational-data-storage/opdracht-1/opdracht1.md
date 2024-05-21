@@ -87,18 +87,37 @@ erDiagram
         string taaknaam
     }
 
-    leveranciers ||--|| leveranciers_overig: Has
-    leveranciers_overig {
+    eigenschappen {
         int id PK
-        int leverancier_id FK
-        text adressen
-        text aanbiedingen
-        text aangesloten_bij
-        boolean advies
-        text algemene_bedrijfsinfo
-        string app
-        etc etc
+        char type
+        string name
     }
 
+    leveranciers |o--o{ eigenschappen_a: hasProperty
+    eigenschappen |o--o{eigenschappen_a: hasPropertyType
+    eigenschappen_a {
+        int id PK
+        int eigenschap_id FK
+        int leverancier_id FK
+        string waarde
+    }
+
+    leveranciers |o--o{ eigenschappen_b: hasProperty
+    eigenschappen |o--o{eigenschappen_b: hasPropertyType
+    eigenschappen_b {
+        int id PK
+        int eigenschap_id FK
+        int leverancier_id FK
+        boolean waarde
+    }
+
+    leveranciers |o--o{ eigenschappen_c: hasProperty
+    eigenschappen |o--o{eigenschappen_c: hasPropertyType
+    eigenschappen_c {
+        int id PK
+        int eigenschap_id FK
+        int leverancier_id FK
+        text waarde
+    }
 
 ```
