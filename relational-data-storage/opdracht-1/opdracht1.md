@@ -13,31 +13,18 @@ erDiagram
         string vasttelnr
     }
 
-    hoofdrubriek {
+    rubrieken o|--o{ rubrieken: hasSubrubrieken
+    rubrieken {
         int id PK
+        int hoofdrubriek_id FK
         string naam
     }
 
-    hoofdrubriek ||--o{ hoofdrubriek_leveranciers: Has
-    leveranciers ||--o{ hoofdrubriek_leveranciers: IsPartOf
-    hoofdrubriek_leveranciers {
+    rubrieken ||--o{ rubrieken_leveranciers: Has
+    leveranciers ||--o{ rubrieken_leveranciers: IsPartOf
+    rubrieken_leveranciers {
         int id PK
         int hoofdrubriek_id FK
-        int leverancier_id FK
-    }
-
-    hoofdrubriek ||--o{ subrubriek: Has
-    subrubriek {
-        int id PK
-        string naam 
-        int hoofdrubriek_id FK
-    }
-
-    leveranciers ||--o{ subrubriek_leveranciers: IsPartOf
-    subrubriek ||--o{ subrubriek_leveranciers: Has
-    subrubriek_leveranciers {
-        int id PK
-        int subrubriek_id FK
         int leverancier_id FK
     }
 
@@ -112,5 +99,6 @@ erDiagram
         string app
         etc etc
     }
+
 
 ```
