@@ -137,6 +137,7 @@ detailgroups {
     text name
 }
 
+rubrieken }o--o{ rubrieken: hasSubrubriek
 rubrieken {
     int id PK
     int parent
@@ -160,5 +161,4 @@ yn_properties {
     int propertytype_id FK
     bool content
 }
-
 ```
