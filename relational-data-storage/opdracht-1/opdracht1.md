@@ -6,10 +6,8 @@ erDiagram
         string woonstraatnaam
         int woonhuisnummer
         int woonpostcode FK
-        int woonplaats_id FK
         int postbusnummer
         int postpostcode FK
-        int postplaats_id FK
         string email
         string mobieltelnr
         string vasttelnr
@@ -43,8 +41,7 @@ erDiagram
         int leverancier_id FK
     }
 
-    leveranciers }|--|{ plaatsen: IsIn
-    gemeentes ||--||plaatsen: Has
+    gemeentes ||--o{ plaatsen: Has
     plaatsen {
         int id PK
         string plaatsnaam
@@ -72,13 +69,13 @@ erDiagram
     }
 
     plaatsen ||--|| postcodes: Has
+    postcodes |o--o{leveranciers: IsIn
     postcodes {
         int id PK
         coordinate lat
         coordinate long
         int plaats_id FK
     }
-
 
     contactpersonen {
         int id PK
