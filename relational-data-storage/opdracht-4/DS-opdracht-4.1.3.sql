@@ -1,6 +1,6 @@
-SELECT s.name, s.straat, s.huisnr, s.postcode, r.name FROM mhl_suppliers as s
-JOIN mhl_cities as ci ON ci.id=s.city_ID
-JOIN mhl_suppliers_mhl_rubriek_view as sr ON sr.mhl_suppliers_ID=s.id
-JOIN mhl_rubrieken as r ON sr.mhl_rubriek_view_ID=r.id
-WHERE ci.name = "Amsterdam" AND (r.name="drank" OR r.parent in (235, 236, 238, 247, 257, 263, 301, 303, 312, 322, 1354, 1355, 1427, 1514, 1515, 1572))
-ORDER BY r.name, s.name
+select r.name, s.name, s.straat, s.huisnr, s.postcode from mhl_suppliers as s
+join mhl_suppliers_mhl_rubriek_view as sr on s.id=sr.mhl_suppliers_ID
+join mhl_rubrieken as r on r.id=sr.mhl_rubriek_view_ID
+left join mhl_rubrieken as pr on r.parent=pr.id
+join mhl_cities as ci on s.city_ID=ci.id
+WHERE ci.name="Amsterdam" AND (r.name="drank" or pr.name="drank")
