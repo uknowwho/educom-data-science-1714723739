@@ -126,7 +126,7 @@ detaildefs {
     int display_order
     array properties
     int propertytype_id FK
-    int property_DEF
+    text property_DEF
     text display_name
 }
 
